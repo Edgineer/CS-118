@@ -62,8 +62,21 @@ int main(int argc, char *argv[])
     if (n < 0) error("ERROR reading from socket");
     printf("Here is the message: %s\n", buffer);
 
+    //extract http version type
+    //extract connection:
+    //extract requested object name
+
+    //Date: current timestamp
+    //Server: what is your name?
+
+    //use fopen to see if file exsits and to get the data if it does
+    //stat() on file for Last-Modififed: & content-length:
+    //Content-Type: use extension from file name
+
+
+
     //reply to client
-    n = write(newsockfd, "I got your message", 18);
+    n = write(newsockfd, "HTTP/1.1 200 OK\r\nDate: Mon, 27 Jul 2009 12:28:53 GMT\r\nServer: Apache/2.2.14 (Win32)\r\nLast-Modified: Wed, 22 Jul 2009 19:15:56 GMT\r\nContent-Length: 50\r\nContent-Type: text/html\r\nConnection: Closed\r\n\r\n<html><body><h1>Hello, World!</h1></body></html>", 246);
     if (n < 0) error("ERROR writing to socket");
 
     sleep(30);
