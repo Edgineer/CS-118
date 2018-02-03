@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <ctype.h>
 #include <sys/types.h>   
 #include <sys/socket.h>
 #include <sys/stat.h>  
@@ -134,6 +135,7 @@ void get_cont_version(){
     return;
 }
 
+/*
 void remove_spaces(){
     int numSpaces=0,i=0;
     while(i+2<sizeof(TEMP_REQ_OBJECT)){
@@ -165,6 +167,7 @@ void remove_spaces(){
         }
     }
 }
+*/
 
 int main(int argc, char *argv[]) {
 
