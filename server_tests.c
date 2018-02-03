@@ -3,6 +3,7 @@
 #include <string.h>
 #include <errno.h>
 #include <sys/types.h>   
+#include <sys/stat.h>
 #include <sys/socket.h>  
 #include <sys/wait.h>
 #include <netinet/in.h>  
@@ -82,7 +83,7 @@ int main(int argc, char *argv[]) {
     //Date: current timestamp
     //Server: what is our server name?
 
-    if(atoi(argv[2])==0) { 
+    if(atoi(argv[2])==1) { 
         write(connectionfd, "HTTP/1.1 200 OK\r\n",17);
         write(connectionfd,"Date: bougieeO'clock\r\n",22);//write current date header
         write(connectionfd,"Server: BestWestern\r\n",21);//write server name header
@@ -162,7 +163,7 @@ int main(int argc, char *argv[]) {
             while ((bytesRead = fread(buffer, 1, sizeof(buffer), file)) > 0) {
                 write(connectionfd,buffer,sizeof(buffer));
             }
-            fclose(fp);
+            fclose(file);
         }
         close(connectionfd);  // close connection
         close(sockfd);       // close socket
